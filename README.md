@@ -1,66 +1,89 @@
-## Foundry
+# 🧠 Ethernaut Solutions using Foundry
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This repository contains secure and gas-efficient solutions for each [Ethernaut](https://ethernaut.openzeppelin.com/) challenge by OpenZeppelin, built and tested using the [Foundry](https://book.getfoundry.sh/) toolkit.
 
-Foundry consists of:
+## 🚀 Purpose
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- Master smart contract security concepts
+- Practice attack vectors (fallback, delegatecall, tx.origin, etc.)
+- Learn Foundry for testing and scripting exploits
 
-## Documentation
+---
 
-https://book.getfoundry.sh/
+## 🛠️ Tech Stack
 
-## Usage
+| Tool     | Purpose                              |
+|----------|--------------------------------------|
+| **Foundry** | Ethereum dev toolkit (Rust-based) |
+| **Forge**   | Compile, test, and script smart contracts |
+| **Anvil**   | Local Ethereum testnet             |
+| **Cast**    | CLI for interacting with the chain |
 
-### Build
+---
 
-```shell
-$ forge build
+## 📁 Project Structure
+
 ```
 
-### Test
+ethernaut-foundry/
+├── lib/               # Dependencies (e.g., forge-std)
+├── script/            # Scripts to solve Ethernaut levels
+│   └── <filename>.s.sol
+├── src/               # Ethernaut contracts
+│   └── <filename>.sol
+├── test/              # Tests for each level
+│   └── <filename>.t.sol
+├── foundry.toml       # Foundry config
+├── .gitignore
+└── README.md
 
-```shell
-$ forge test
+````
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Install Foundry
+
+### 2. Clone the Repo & Install Dependencies
+
+### 3. Run Local Tests
+
+### 4. Deploy Exploits Onchain (Optional)
+
+```bash
+forge script script/<file_name>.s.sol:FallbackScript \
+  --rpc-url $RPC_URL \
+  --private-key $PRIVATE_KEY \
+  --broadcast
 ```
 
-### Format
+> ⚠️ Never expose your private key publicly.
 
-```shell
-$ forge fmt
-```
+---
 
-### Gas Snapshots
+## 📜 Level Progress
 
-```shell
-$ forge snapshot
-```
+| Level | Name            | Status | Key Concepts            |
+| ----- | --------------- | ------ | ----------------------- |
+| 00    | Hello Ethernaut | ✅      | Setup                   |
+| 01    | Fallback        |       | fallback(), receive()   |
+| 02    | Fallout         |       | Constructor typo        |
+| 03    | Coin Flip       |      | Pseudo RNG, blockhash   |
+| 04    | Telephone       |     | tx.origin vs msg.sender |
+| ...   | ...             | ...    | ...                     |
 
-### Anvil
+---
 
-```shell
-$ anvil
-```
+## 📚 References
 
-### Deploy
+* [Ethernaut Game](https://ethernaut.openzeppelin.com/)
+* [Foundry Book](https://book.getfoundry.sh/)
+* [Solidity Docs](https://docs.soliditylang.org/)
+* [Solidity by Example](https://solidity-by-example.org/)
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+---
 
-### Cast
+## 🪪 License
 
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+MIT © \Sumit Mazumdar
